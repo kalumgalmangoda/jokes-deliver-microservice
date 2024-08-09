@@ -24,7 +24,7 @@ This microservice delivers a random joke to users upon request. The jokes are st
 
   ```bash
   git clone <repository_url>
-  cd jokes-deliver-microservice
+  cd deliver-jokes-microservice
   ```
 2. Install dependencies:
 
@@ -39,6 +39,13 @@ Create a .env file in the root directory with the following variables:
   PORT=3003
   FRONTEND_APP_URL=http://localhost:3000
   ```
+4. Set up the MySQL database:
+
+  ```bash
+  mysql -u root -p
+  CREATE DATABASE jokes_db;
+  ```
+
 ## Running the Application
 
 Start the Nest.js application:
@@ -46,11 +53,11 @@ Start the Nest.js application:
   ```bash
   npm run start
   ```
-The microservice will run at http://localhost:3001.
+The microservice will run at http://localhost:3003.
 
 ## API Endpoints
 
-- GET /jokes/random: Fetch a random joke.
+- GET /jokes/random?type=type: Fetch a random joke to a given type.
 - GET /jokes/types: Fetch all joke types.
 - POST /jokes: Submit a new joke.
   
